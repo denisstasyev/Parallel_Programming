@@ -43,6 +43,8 @@ void *thread_func(void *arg) {
 
     int rank = arg_in->rank;
 
+    unsigned int t_time = - clock();
+
     int start, end;
     if (rank < rest) {
         start = rank * (diff + 1);
@@ -77,7 +79,11 @@ void *thread_func(void *arg) {
         sum += func_integral(coord, step);
         coord += step;
     }
-//    printf("Sum: %.15f; rank: %d; start: %.15f / end: %.15f; step: %.15f\n", sum, rank, coord_start, coord_end, step);
+
+    t_time += clock();
+    double s_time = (double) t_time / CLOCKS_PER_SEC;
+
+    printf("Sum: %.15f; rank: %d; time: %f; start: %.15f / end: %.15f; step: %.15f\n", sum, rank, s_time, coord_start, coord_end, step);
 
     pthread_mutex_lock(&mutex);
     result += sum;
