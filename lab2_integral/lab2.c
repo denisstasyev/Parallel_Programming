@@ -1,3 +1,6 @@
+
+/* The program of calculation integral from 0.01 to 10 of function cos(1/x) over dx */
+
 // Use "gcc -o 1.out lab2.c -lpthread -lm" to compile
 // and "./1.out" to run.
 

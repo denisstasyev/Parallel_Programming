@@ -1,3 +1,6 @@
+
+/* 1. Explicit four-point scheme */
+
 // min_x, min_t or start_x, start_t = 0 by condition
 
 #include <stdlib.h>
